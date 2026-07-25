@@ -17,42 +17,40 @@
   <meta name="theme-color" content="#0284c7" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/png" href="./logo-cashy-link.png" />
-  <script type="module" crossorigin src="/assets/privacy-aJAwa0Rm.js"></script>
-  <link rel="modulepreload" crossorigin href="/assets/styles-CE0EOvaD.js">
-  <link rel="stylesheet" crossorigin href="/assets/styles-DJ-QMF4r.css">
+  <link rel="stylesheet" crossorigin href="/assets/styles-CRpVPRs4.css">
 </head>
 <body>
-  <div class="bg-mesh" aria-hidden="true"></div>
-  <div class="bg-grid" aria-hidden="true"></div>
-
-  <header class="site-header">
+  <header class="site-header is-scrolled">
     <div class="container header-inner">
       <a href="/" class="logo">
         <img
           class="logo-img"
           src="./logo-cashy-link.png"
           alt="شعار Cashy Link"
-          width="52"
-          height="52"
+          width="40"
+          height="40"
           decoding="async"
         />
-        <span class="logo-brand" dir="ltr">
-          <span class="logo-brand__shimmer">Cashy Link</span>
-        </span>
+        <span class="logo-brand" dir="ltr">Cashy Link</span>
       </a>
       <nav class="nav-desktop" aria-label="التنقل الرئيسي">
         <a href="/">الرئيسية</a>
         <a href="/#downloads">تحميل التطبيقات</a>
-        <a class="btn btn-primary" href="/#downloads">حمّل التطبيق الآن</a>
+        <a class="btn btn-primary" href="/#downloads">حمّل التطبيق</a>
       </nav>
-      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="فتح القائمة">☰</button>
+      <div class="header-actions">
+        <a class="btn btn-primary" href="/#downloads">حمّل التطبيق</a>
+        <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="فتح القائمة">☰</button>
+      </div>
     </div>
-    <div class="container nav-mobile" id="mobile-nav">
-      <a href="/">الرئيسية</a>
-      <a href="/#downloads">تحميل التطبيقات</a>
-      <a class="btn btn-primary" href="/#downloads">حمّل التطبيق الآن</a>
+    <div class="nav-mobile" id="mobile-nav" hidden>
+      <div class="container nav-mobile-inner">
+        <a href="/">الرئيسية</a>
+        <a href="/#downloads">تحميل التطبيقات</a>
+        <a class="btn btn-primary" href="/#downloads">حمّل التطبيق الآن</a>
+      </div>
     </div>
   </header>
 
@@ -122,5 +120,17 @@
     </div>
   </footer>
 
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+    const toggle = document.querySelector(".nav-toggle");
+    const mobile = document.getElementById("mobile-nav");
+    if (toggle && mobile) {
+      toggle.addEventListener("click", () => {
+        const open = toggle.getAttribute("aria-expanded") === "true";
+        toggle.setAttribute("aria-expanded", String(!open));
+        mobile.hidden = open;
+      });
+    }
+  </script>
 </body>
 </html>
